@@ -65,7 +65,7 @@ punchin_punchout_system/
 
 1. **Clone the repository**
    ```bash
-   git clone [repository-url]
+   git clone [https://github.com/abdulsalamdeveloper1999/abdulsalamdeveloper1999-punchin-punchout-flutter-bloc-springboot-postgres/tree/main]
    ```
 
 2. **Backend Setup**
