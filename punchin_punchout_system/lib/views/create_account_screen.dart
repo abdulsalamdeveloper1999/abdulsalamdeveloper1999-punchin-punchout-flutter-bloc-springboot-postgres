@@ -12,6 +12,11 @@ class CreateAccountScreen extends StatelessWidget {
   final _usernameController = TextEditingController();
   final _passwordController = TextEditingController();
 
+  // Email validation regex
+  final RegExp _emailRegex = RegExp(
+    r'^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$',
+  );
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -70,13 +75,14 @@ class CreateAccountScreen extends StatelessWidget {
                       textAlign: TextAlign.center,
                     ),
                     const SizedBox(height: 40),
-                    // Username Field
+                    // Email Field (using username controller)
                     TextFormField(
                       controller: _usernameController,
+                      keyboardType: TextInputType.emailAddress,
                       decoration: InputDecoration(
-                        labelText: 'Username',
-                        hintText: 'Enter your username',
-                        prefixIcon: const Icon(Icons.person_outline),
+                        labelText: 'Email',
+                        hintText: 'Enter your email',
+                        prefixIcon: const Icon(Icons.email_outlined),
                         border: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(12),
                         ),
@@ -91,7 +97,10 @@ class CreateAccountScreen extends StatelessWidget {
                       ),
                       validator: (value) {
                         if (value == null || value.isEmpty) {
-                          return 'Please enter your username';
+                          return 'Please enter your email';
+                        }
+                        if (!_emailRegex.hasMatch(value)) {
+                          return 'Please enter a valid email address';
                         }
                         return null;
                       },
