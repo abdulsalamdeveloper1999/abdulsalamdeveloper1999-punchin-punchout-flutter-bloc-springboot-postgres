@@ -57,7 +57,7 @@ punchin_punchout_system/
 
 ### Prerequisites
 - Flutter SDK
-- Java JDK 11+
+- Java JDK 17+
 - PostgreSQL
 - Android Studio / VS Code
 
